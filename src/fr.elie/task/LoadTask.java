@@ -47,14 +47,14 @@ public class LoadTask implements Runnable {
 
         try {
             //Chargement des eleves
-            final PreparedStatement statementAnimaux = connection.prepareStatement("SELECT e.* FROM dbo.ANIMAL");
+            final PreparedStatement statementAnimaux = connection.prepareStatement("SELECT * FROM dbo.ANIMAL");
             ResultSet resultSet = statementAnimaux.executeQuery();
 
             while(resultSet.next()) {
                 Animal animal = new Animal(
                         resultSet.getInt(1),
                         resultSet.getString(2),
-                        resultSet.getInt(3),
+                        resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getBoolean(6),
@@ -64,7 +64,7 @@ public class LoadTask implements Runnable {
                         resultSet.getString(10),
                         resultSet.getString(11),
                         resultSet.getString(12),
-                        resultSet.getString(13)
+                        resultSet.getBoolean(13)
                 );
                 this.AnimalList.put(animal.getId(), animal);
             }

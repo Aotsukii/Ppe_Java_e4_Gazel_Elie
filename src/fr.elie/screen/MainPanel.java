@@ -1,7 +1,7 @@
 package fr.elie.screen;
 
 import fr.elie.screen.fields.PrimaryButton;
-
+import fr.elie.screen.panels.animaux.AnimauxMainPanel;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;
@@ -26,8 +26,12 @@ public class MainPanel extends JPanel {
         welcome_message.setAlignment(Label.CENTER);
         add(welcome_message);
 
-        PrimaryButton gest_elev = new PrimaryButton("Gestion des élèves");
-        add(gest_elev);
+        PrimaryButton gest_animaux = new PrimaryButton("Gestion des animaux");
+        gest_animaux.addActionListener(e -> {
+            AnimauxMainPanel animauxMainPanel = new AnimauxMainPanel(mainScreen);
+            mainScreen.changePanel(animauxMainPanel);
+        });
+        add(gest_animaux);
     }
 
 }
