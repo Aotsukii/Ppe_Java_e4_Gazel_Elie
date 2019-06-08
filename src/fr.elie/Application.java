@@ -1,7 +1,7 @@
 package fr.elie;
 
 import fr.elie.content.*;
-//import fr.elie.database.Database;
+import fr.elie.database.Database;
 import fr.elie.screen.MainScreen;
 import fr.elie.task.LoadTask;
 
@@ -10,9 +10,8 @@ import java.util.*;
 
 public class Application {
     private final Scanner scanner;
-
-    private final MainScreen mainScreen;
     private static Database database;
+    private final MainScreen mainScreen;
 
     private static Map<Integer, Animal> AnimalList;
     private static Map<Integer, Benevole> BenevoleList;
@@ -35,12 +34,12 @@ public class Application {
      * @param args
      */
     private Application(String[] args){
+
         this.scanner = new Scanner(System.in);
 
         //On enregistre la base de données
         System.out.println("Préparation de la base de données...");
-        //database = new Database(Database.DRIVER_MYSQL, "localhost", 3306, "ppe_lourd", "root", "");
-        database = new Database(Database.DRIVER_SQLSERVER, "localhost", 1433, "ppe_lourd", "IFU-NC4OKL4\\Arkas", "");
+        database = new Database(Database.DRIVER_SQLSERVER, "localhost", 1433, "ppe_lourd_e4", "DESKTOP-JRU2AKK\\Buck", "");
         System.out.println("Base de données : OK");
 
         //Lancement de la fenetre
@@ -58,42 +57,36 @@ public class Application {
         CollecteList = loadTask.getCollecteList();
         MembreList = loadTask.getMembreList();
         RaceList = loadTask.getRaceList();
-        classeList = loadTask.getClasseList();
 
         System.out.println("Chargement : OK");
 
     }
-
     public static Database getDatabase(){
         return database;
     }
 
-    public static Map<Integer, Eleve> getEleveList() {
-        return eleveList;
+    public static Map<Integer, Animal> getAnimalList() {
+        return AnimalList;
     }
 
-    public static Map<Integer, Professeur> getProfesseurList() {
-        return professeurList;
+    public static Map<Integer, Benevole> getBenevoleList() {
+        return BenevoleList;
     }
 
-    public static Map<Integer, Parent> getParentList() {
-        return parentList;
+    public static Map<Integer, Fa> getFaList() {
+        return FaList;
     }
 
-    public static Map<Integer, Matiere> getMatiereList() {
-        return matiereList;
+    public static Map<Integer, Collecte> getCollecteList() {
+        return CollecteList;
     }
 
-    public static Map<Integer, Classe> getClasseList() {
-        return classeList;
+    public static Map<Integer, Membre> getMembreList() {
+        return MembreList;
     }
 
-    public static Map<Integer, Salle> getSalleList() {
-        return salleList;
-    }
-
-    public static Map<Integer, Seance> getSeanceList() {
-        return seanceList;
+    public static Map<Integer, Race> getRaceList() {
+        return RaceList;
     }
 
     public static Object[] toTab(Collection<?> collection){

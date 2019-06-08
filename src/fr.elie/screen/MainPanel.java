@@ -21,12 +21,13 @@ public class MainPanel extends JPanel {
 
     private void components(){
         Label welcome_message = new Label();
-        welcome_message.setText("Panel de gestion de l'école de Barbe Grise");
+        welcome_message.setText("Gestion du refuge du Languedoc");
         welcome_message.setFont(new Font("SansSerif", Font.PLAIN, 17));
         welcome_message.setAlignment(Label.CENTER);
         add(welcome_message);
 
         PrimaryButton gest_elev = new PrimaryButton("Gestion des élèves");
+        add(gest_elev);
     }
 
 }
