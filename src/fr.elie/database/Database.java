@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.Date;
 
 public class Database {
-    public static final String DRIVER_MYSQL = "jdbc:mysql";
     public static final String DRIVER_SQLSERVER = "jdbc:sqlserver";
     private final String driver;
     private final String host;
@@ -16,7 +15,6 @@ public class Database {
     private final int port;
     private final String user;
     private final String password;
-
     private Connection connection = null;
 
     public Database(String driver, String host, int port, String database, String user, String password) {
@@ -30,18 +28,9 @@ public class Database {
 
     public void connectDb(){
         try{
-            switch(this.driver){
-                case DRIVER_MYSQL:
-                    System.out.println("DRIVER MYSQL DETECTE");
-                    Class.forName("com.mysql.jdbc.Driver");
-                    this.connection = DriverManager.getConnection(this.driver+"://"+this.host+":"+this.port+"/"+this.database+"?charset=utf8&useSSL=false",this.user,this.password);
-                    break;
-                case DRIVER_SQLSERVER:
-                    System.out.println("DRIVER SQLSERVER DETECTE");
-                    String uri = this.driver+"://"+this.host+":"+port+";databaseName="+this.database+";instanceNameDESKTOP-JRU2AKK;integratedSecurity=true;";
-                    this.connection = DriverManager.getConnection(uri);
-                    break;
-            }
+            System.out.println("DRIVER SQLSERVER DETECTE");
+            String uri = this.driver+"://"+this.host+":"+port+";databaseName="+this.database+";instanceNameDESKTOP-JRU2AKK;integratedSecurity=true;";
+            this.connection = DriverManager.getConnection(uri);
             System.out.println("Connexion à la base de données effectuée");
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -61,9 +50,7 @@ public class Database {
     }
 
     public Connection getConnection(){return connection;}
-
     public boolean isConnected() { return this.connection != null; }
-
     public int insert(String table, Map<?,?> request) {
 
         connectDb();

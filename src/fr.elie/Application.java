@@ -36,18 +36,8 @@ public class Application {
     private Application(String[] args){
 
         this.scanner = new Scanner(System.in);
-
-        //On enregistre la base de données
-        System.out.println("Préparation de la base de données...");
         database = new Database(Database.DRIVER_SQLSERVER, "localhost", 1433, "ppe_lourd_e4", "DESKTOP-JRU2AKK\\Buck", "");
-        System.out.println("Base de données : OK");
-
-        //Lancement de la fenetre
-        System.out.println("Ouverture de la fenêtre...");
         this.mainScreen = new MainScreen();
-        System.out.println("Ouverture : OK");
-
-        System.out.println("Chargement des données en arrière plan...");
         LoadTask loadTask = new LoadTask(database);
         loadTask.run();
 
@@ -57,8 +47,7 @@ public class Application {
         CollecteList = loadTask.getCollecteList();
         MembreList = loadTask.getMembreList();
         RaceList = loadTask.getRaceList();
-
-        System.out.println("Chargement : OK");
+        System.out.println("ok load");
 
     }
     public static Database getDatabase(){

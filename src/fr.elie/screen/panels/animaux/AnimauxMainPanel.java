@@ -13,9 +13,8 @@ public class AnimauxMainPanel extends DefaultMainPanel {
     protected JFrame currentFrame;
 
     public AnimauxMainPanel(MainScreen mainScreen){
-        super("Gestion des élèves", mainScreen);
+        super("Gestion des animaux", mainScreen);
 
-        //setLayout(new GridLayout(0, 1, 25, 25));
 
         PrimaryButton liste = new PrimaryButton("Liste des animaux");
         liste.addActionListener(e ->{
@@ -36,7 +35,7 @@ public class AnimauxMainPanel extends DefaultMainPanel {
         PrimaryButton delete = new PrimaryButton("Supprimer un animal");
         delete.addActionListener(e ->{
             if(currentFrame == null) {
-                this.currentFrame = new AnimauxCreateFrame(this);
+                this.currentFrame = new AnimauxDeleteFrame(this);
             }
         });
         add(delete);

@@ -13,7 +13,6 @@ public class AnimauxTable extends JTable{
 
     @Override
     public void moveColumn(int column, int targetColumn) {
-        //On empêche le déplacement d'une colonne
     }
 
     private class Model extends AbstractTableModel {

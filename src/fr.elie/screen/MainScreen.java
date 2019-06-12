@@ -15,19 +15,13 @@ public class MainScreen extends JFrame {
         this.setSize(width, height);
         this.setPreferredSize(new Dimension(width, height));
         this.setResizable(true);
-        this.setLocationRelativeTo(null); //Centre au milieu de l'écran
+        this.setLocationRelativeTo(null);
 
-        //this.setAlwaysOnTop(true); //Toujours devant
-
-        /* PANEL */
         add(new MainPanel(this));
 
-        /* END CONFIG */
 
-        //On affiche la fenetre
         this.setVisible(true);
 
-        //Fermeture de la fenetre
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 

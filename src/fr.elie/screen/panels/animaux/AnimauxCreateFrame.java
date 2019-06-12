@@ -13,18 +13,13 @@ public class AnimauxCreateFrame extends JFrame implements WindowListener {
 
     public AnimauxCreateFrame(AnimauxMainPanel panel) {
         this.panel = panel;
-
         this.setTitle("Ajouter un animal");
-        this.setSize(new Dimension(480, 200));
+        this.setSize(new Dimension(480, 250));
         this.setLocationRelativeTo(null);
         this.setLayout(new FlowLayout());
-
         this.add(new AnimauxCreatePanel(this));
-
         this.addWindowListener(this);
-
         this.setVisible(true);
-
     }
 
     /**

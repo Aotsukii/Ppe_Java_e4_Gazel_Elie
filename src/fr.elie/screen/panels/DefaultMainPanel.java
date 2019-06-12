@@ -8,10 +8,6 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicPanelUI;
 import java.awt.*;
 
-/**
- * Class créée le 12/03/2019 à 11:24
- * par Jullian Dorian
- */
 public class DefaultMainPanel extends JPanel {
 
     protected MainScreen mainScreen;

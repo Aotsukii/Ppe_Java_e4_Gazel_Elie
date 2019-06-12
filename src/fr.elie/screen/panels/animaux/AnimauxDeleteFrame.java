@@ -1,25 +1,25 @@
 package fr.elie.screen.panels.animaux;
 
+import fr.elie.screen.panels.animaux.AnimauxMainPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-
-public class AnimauxListFrame extends JFrame implements WindowListener {
+public class AnimauxDeleteFrame extends JFrame implements WindowListener {
 
     private AnimauxMainPanel panel;
 
-    public AnimauxListFrame(AnimauxMainPanel panel) {
+    public AnimauxDeleteFrame(AnimauxMainPanel panel) {
         this.panel = panel;
-        this.setTitle("Liste des animaux");
-        //this.setSize(new Dimension(500, 300));
-        this.setResizable(false);
-        this.setPreferredSize(new Dimension(450, 450));
+
+        this.setTitle("Supprimer un animal");
+        this.setSize(new Dimension(480, 400));
         this.setLocationRelativeTo(null);
         this.setLayout(new FlowLayout());
 
-        this.add(new AnimauxListPanel(this));
+        this.add(new AnimauxDeletePanel(this));
 
         this.addWindowListener(this);
 
